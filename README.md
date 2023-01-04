@@ -1,5 +1,11 @@
 ## git-chsh
 
+<details>
+  <summary>srcs:</summary>
+  https://www.javatpoint.com/git-cheat-sheet
+</details>
+
+
 ## CONFIG
 
 >**git config 3 levels:**  
