@@ -34,7 +34,7 @@
 <br><br>    
   
 ## CONFIG
- 
+
 >**git config 3 levels:**  
 >	--system //to the whole OS  
 >	--global //to the exact user  
