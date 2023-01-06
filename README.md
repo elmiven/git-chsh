@@ -208,6 +208,11 @@ create a **.gitignore** file in the root dir
 **checkout {path}**   
 `git checkout <path>` Discarding local changes (before staging)    
 
+**restore {file}**  
+`git restore <file>` (the same) discard changes in working directory  
+
+<br>
+  
 **reset**    
 `git reset --soft` move only HEAD pointer to \<commit\>  
 `git reset` move HEAD, reset Staged area   
@@ -216,6 +221,8 @@ create a **.gitignore** file in the root dir
 
 **checkout HEAD {path}**  
 `git checkout HEAD <path>` == `reset --hard`  
+
+<br>
 
 **rm**  
 `git rm <path>` delete file from working and index zone    
