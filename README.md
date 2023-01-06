@@ -1,6 +1,6 @@
 ## [git cheat sheet]
 
-
+<details>
   <summary>srcs:</summary>
   https://training.github.com/ - github cheat sheet<br>
   https://ndpsoftware.com/git-cheatsheet.html - interactive cheat sheet<br>
