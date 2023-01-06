@@ -172,7 +172,13 @@ create a **.gitignore** file in the root dir
 `git diff` compare files bw working and staged zones  
 `git diff --staged` compare files bw staged and HEAD zones  
 `git diff <path>`  
-  
+
+<br>
+
+
+**ls-files**  
+`git ls-files` files in staged area   
+
 <br>
 
 ### Check history of commits 
@@ -208,7 +214,7 @@ create a **.gitignore** file in the root dir
 **checkout {path}**   
 `git checkout <path>` Discarding local changes (before staging)    
 
-**restore {file}**  
+**restore {file}** (new)  
 `git restore <file>` (the same) discard changes in working directory  
 
 <br>
@@ -271,6 +277,8 @@ git checkout v1^  go to the previous commit
 `-b`  create new branch and switch to it  
 
 
+**switch** (new)  
+`git switch {branch}` swich only for  work w branches 
 
 
 <br>
@@ -312,6 +320,17 @@ Everything below the ==== is the version in the test branch.
 
 ### stash  
 use to save uncommited changes when you switch branch 
+
+`git stash`  
+`git stash list`   
+`git stash apply 1`  
+`git stash push -m "comment"`  
+`git stash pop 1`  add stasg to the proj  
+
+
+
+
+
 
 <br><br>
 
