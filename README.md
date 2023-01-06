@@ -136,14 +136,16 @@ alias get='git '
 `-a` add to inx(tracked files) and commit  
 `--amend` rewrite a commit  
 
-<br>  
+<br>
+  
 > 🛈 **Best practices** `git commit`  
 > \- commit often  
 > \- one change - one commit  
 > \- commit comment header <= 50 characters  
 > \- commit header comment in imperative mood("this commit will fix bugs")  
 
-<br> 
+<br>
+
 **.git/HEAD:** pointer, representing your current working directory(eg point to the tip of the new branch), the HEAD pointer can be moved to different branches, tags, or commits when using `git checkout`  
 "HEAD is you. It points to whatever you checked out, wherever you are. Typically that is not a commit, it is a branch. If HEAD does point to a commit (or tag), even if it's the same commit (or tag) that a branch also points to, you (and HEAD) have been detached from that branch. Since you don't have a branch attached to you, the branch won't follow along with you as you make new commits. HEAD, however, will."  
 ***Detached HEAD***: It is possible for HEAD to refer to a specific revision that is not associated with a branch name. This situation is called a detached HEAD.  
@@ -157,8 +159,8 @@ alias get='git '
 <br>  
 
 
-**.gitignore** ignore unwanted files  
-create a `.gitignore` file in the root dir  
+**gitignore** (ignore unwanted files)  
+create a **.gitignore** file in the root dir  
 > sensetive content passwords  
 > big binary files  
 > system files from code editors, etc...  
@@ -166,7 +168,7 @@ create a `.gitignore` file in the root dir
 <br>
 
 
-**Diff (Compare files in git zones)  
+**Diff** (Compare files in git zones)  
 `git diff` compare files bw working and staged zones  
 `git diff --staged` compare files bw staged and HEAD zones  
 `git diff <path>`  
@@ -302,7 +304,7 @@ Everything below the ==== is the version in the test branch.
 
 
 ### stash  
-
+use to save uncommited changes when you switch branch 
 
 <br><br>
 
@@ -312,51 +314,35 @@ Everything below the ==== is the version in the test branch.
 ## REMOTE REPOSITORIES
 
 **clone**  
-`git clone <repo url>` download a copy of the repo, and  implicitly tracked remote server nammed "origin"  
+`git clone <repo url>` download a copy of the repo, and  implicitly tracked remote server w given name.   
  
 **remote**  
- `git remote -v` list of remote repos     
-  
-`git remote add <name> <url>` — добавляет удалённый репозиторий с заданным именем;  
-`git remote remove <name>` — удаляет удалённый репозиторий с заданным именем;  
-`git remote rename <old name> <new name>` — переименовывает удалённый репозиторий;  
-`git remote set-url <name> <url>` — присваивает репозиторию с именем новый адрес;  
-`git remote show <name>` — показывает информацию о репозитории.  
+`git remote -v` list of remote repos  
+`git remote show <name>` — inf abr remore repo  
+
+`git remote add <name> <url>` — add remote repo w given name  
+`git remote remove <name>` — delete remomre repo  
+`git remote rename <old name> <new name>` — rename remote repo  
+`git remote set-url <name> <url>` — change url of the remote repo  
+
 
 >Remote repositories typically live on a separate machine, possibly a centralized server. As we can see here, however, they can just as well point to a repository on the same machine. There is nothing particularly special about the name “origin”, however the convention is to use the name “origin” for the primary centralized repository (if there is one).
->  
-
-**branch -a | --track**  
-`git branch -a` show inf abt remote branches  
-`git branch --track feature origin/feature` Add a local branch that tracks a remote branch.  
-`git branch -a`
-  
-
-`git branch -u <remote-repo-name>/<remote-branch>` change the upstream info  
-
-  
-`git checkout -b <ветка> <remote-repo-name>/<remote-branch>`  
-`git checkout <remote-branch>` 
-
 
 <br>
 
-**--bare**  
-`git clone --bare name namrdir.git` create a bare repo (repo without a workspace(working zone))  
+**branch -a | --track**  
+`git branch -a` show remote branches  
+`git branch --track branch origin/branch` add a local branch that tracking a remote branch.
+`git branch -u <remote-repo-name>/<remote-branch>` tie remote branch to the current branch    
+`git checkout -b <branch> <remote-repo-name>/<remote-branch>`  create a local branch and start tracking remote  
+`git checkout <remote-branch>` create local branch with the same name as remote and tracking it  
 
-> **bare repository** will serve as the origin repository for several remote users, so it does not create the default remote origin. What this means is that basic git pull and git push operations won't work since Git assumes that without a workspace, you don't intend to commit any changes to the bare repository:
-  
-`git remote add shared ../hello.git` Adding a Remote Repository  
-`git push shared master`  
->Since bare repositories are usually shared on some sort of network server, it is usually difficult to cd into the repo and pull changes. So we need to push our changes into other repositories.
-shared is the name of the repository receiving the changes we are pushing. (Remember, we added it as a remote in the previous lab.)
+<br>
 
 
 **fetch / merge**  
 `git fetch <name> <branch>` — fetch new commits from the remote repository, but it will not merge these commits into the local branches.  
 `git merge origin/master` - Merge the fetched changes into local master
-
-Add a local branch that tracks a remote branch.  
 
 **pull**  
 `git pull <name> <branch>` — fetch and merge  
@@ -367,13 +353,25 @@ Add a local branch that tracks a remote branch.
 `git branch --track shared master`  
 `git pull shared master`  
   
-
+<br>
 
 **Github Fork**   
 GitHub. Это полезно в тех случаях, когда у вас нет прав на создание ветки в оригинальном репозитории. Когда вы воспользуетесь командой git clone, ваш локальный репозиторий будет отслеживать удалённый форк как origin, а оригинальный репозиторий как upstream.  
 **Github pull request**   
 После этого вам может понадобиться слить тематическую ветку вашего удалённого репозитория в основную ветку оригинального. Для этого вы можете создать новый Pull Request — запрос на внесение изменений, где GitHub проверяет наличие конфликтов прежде чем повзолить вам провести слияние. 
 
+
+<br><br>
+
+**--bare**  
+`git clone --bare name namrdir.git` create a bare repo (repo without a workspace(working zone))  
+
+> **bare repository** will serve as the origin repository for several remote users, so it does not create the default remote origin. What this means is that basic git pull and git push operations won't work since Git assumes that without a workspace, you don't intend to commit any changes to the bare repository:
+  
+`git remote add shared ../hello.git` Adding a Remote Repository  
+`git push shared master`  
+>Since bare repositories are usually shared on some sort of network server, it is usually difficult to cd into the repo and pull changes. So we need to push our changes into other repositories.
+shared is the name of the repository receiving the changes we are pushing. (Remember, we added it as a remote in the previous lab.)
 
 
 
